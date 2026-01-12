@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ankieta</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+label {
+    display: block;
+    margin: 5px 0;
+    cursor: pointer;
+}
+#ocena_prowadzacego, #materialy {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    cursor: pointer;
+    padding: 10px 0;
+    max-width: 800px;
+    margin: auto;
+}
+#ocena_prowadzacego img, #materialy img {
+    max-width: 130px;
+    height: auto;
+    transition: transform 0.2s;
+}
+#ocena_prowadzacego img:hover, #materialy img:hover {
+    transform: scale(1.2);
+}
+img.selected {
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+}
+.disabled-look {
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+fieldset {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+textarea {
+    width: 100%;
+}
+</style>
+</head>
+<body>
+
+<h2>Ankieta – Aplikacje Internetowe</h2>
+
+<form id="odpowiedzi" action="./podsumowanie.php" method="post">
+
+<!-- Pytanie 1 – Języki -->
+<label>Którego języka programowania najczęściej używasz?</label>
+<div id="pytanie1">
+    <label><input type="checkbox" class="opcja" name="jezyki[]" value="HTML">HTML</label>
+    <label><input type="checkbox" class="opcja" name="jezyki[]" value="CSS">CSS</label>
+    <label><input type="checkbox" class="opcja" name="jezyki[]" value="JavaScript">JavaScript</label>
+    <label><input type="checkbox" class="opcja" name="jezyki[]" value="Python">Python</label>
+    <label><input type="checkbox" class="opcja" name="jezyki[]" value="Java">Java</label>
+    <label><input type="checkbox" class="opcja" name="jezyki[]" value="PHP">PHP</label>
+    <label><input type="checkbox" class="opcja" name="jezyki[]" value="rodzina_c">Rodzina C (C, C#, C++)</label>
+    <label><input type="checkbox" id="nic" name="jezyki[]" value="nic">Żadne z wymienionych</label>
+</div>
+
+<!-- Front-end / Back-end -->
+<label>Wolisz front-end czy back-end?</label>
+<select name="front_ot_back">
+    <option value="" disabled selected>--Wybierz--</option>
+    <option value="front-end">front-end</option>
+    <option value="back-end">back-end</option>
+</select>
+
+<!-- Nauczyciel -->
+<label>Kto cię uczy Aplikacji Internetowych?</label>
+<select id="nauczyciel" name="nauczyciel">
+    <option value="" disabled selected>--Wybierz--</option>
+    <option value="Nowak">Nowak</option>
+    <option value="Michael">Michael</option>
+    <option value="inny">Inny (Wpisz)</option>
+</select>
+<input type="text" id="wpisany" name="wpisany" placeholder="Wpisz nazwisko nauczyciela" style="display:none; margin-top:5px;">
+
+<!-- Ocena prowadzącego -->
+<label>Jak oceniasz przygotowanie prowadzącego?</label>
+<div id="ocena_prowadzacego">
+    <img src="./bardzo_dobrze.png" alt="bardzo dobrze" data-value="5">
+    <img src="./dobrze.png" alt="dobrze" data-value="4">
+    <img src="./tak_lo.png" alt="średnio" data-value="3">
+    <img src="./słabo.png" alt="słabo" data-value="2">
+    <img src="./bardzo_źle.png" alt="bardzo źle" data-value="1">
+</div>
+<input type="hidden" id="ocena" name="ocena">
+
+<!-- Ocena materiałów dydaktycznych -->
+<label>Jak oceniasz materiały dydaktyczne?</label>
+<div id="materialy">
+    <img src="./bardzo_dobrze.png" alt="bardzo dobrze" data-value="5">
+    <img src="./dobrze.png" alt="dobrze" data-value="4">
+    <img src="./tak_lo.png" alt="średnio" data-value="3">
+    <img src="./słabo.png" alt="słabo" data-value="2">
+    <img src="./bardzo_źle.png" alt="bardzo źle" data-value="1">
+</div>
+<input type="hidden" id="materialy1" name="materialy1">
+
+<!-- Tekstowe odpowiedzi i pozostałe pola -->
+<label for="ciekawostka">Najciekawsza rzecz, jakiej się dowiedziałeś/łaś:</label>
+<textarea id="ciekawostka" name="ciekawostka"></textarea>
+
+<label for="jezyk">Jakiego języka używa prowadzący?</label>
+<select id="jezyk" name="jezyk">
+    <option disabled selected>--Wybierz styl języka--</option>
+    <option value="zrozumialego">zrozumiałego</option>
+    <option value="troche-niezrozumialy">trochę niezrozumiały</option>
+    <option value="nie">nie zrozumiałego</option>
+</select>
+
+<label for="trudnosc">Czy stopień trudności zadań jest dobierany do ucznia?</label>
+<label><input type="radio" name="trudnosc" value="Tak">Tak</label>
+<label><input type="radio" name="trudnosc" value="Nie">Nie</label>
+
+<label for="stopien">Czy tempo pracy jest dostosowane do ucznia?</label>
+<select id="stopien" name="stopien">
+    <option disabled selected>--Wybierz--</option>
+    <option value="dostosowywany">Tak</option>
+    <option value="nie-zawsze">Nie zawsze</option>
+    <option value="niedostosowywany">Nie</option>
+</select>
+
+<!-- Pytania dodatkowe -->
+<label>Czy jest możliwość zadawania pytań?</label>
+<label><input type="radio" name="pytania" id="Tak">Tak</label>
+<label><input type="radio" name="pytania" id="Nie">Nie</label>
+
+<div id="unikalne" style="display:none;">
+<label>Czy na zadane pytanie otrzymujesz wyczerpującą odpowiedź?</label>
+<label><input type="radio" name="pytania1">Tak</label>
+<label><input type="radio" name="pytania1">Nie</label>
+</div>
+
+<label>Czy planujesz wykorzystać zdobytą wiedzę w przyszłości?</label>
+<label><input type="radio" name="urzycie" id="wykorzystam">Tak</label>
+<label><input type="radio" name="urzycie" id="Niewykorzystam">Nie</label>
+<label><input type="radio" name="urzycie" id="nie-wiem">Nie wiem</label>
+
+<div id="wiedza" style="display:none;">
+<label>Jak często planujesz wykorzystywać tą wiedzę?</label>
+<select name="useful">
+    <option disabled selected>--Wybierz--</option>
+    <option value="Often">Często</option>
+    <option value="Rarely">Rzadko</option>
+    <option value="occasionally">Prawie-nigdy</option>
+    <option value="Never">Nigdy</option>
+    <option value="use">Kiedy będę potrzebował/ła</option>
+</select>
+</div>
+
+<label>Który rok się uczysz?</label>
+<input type="number" name="lata" min="1" max="5" required>
+
+<div id="plec">
+<legend>Płeć:</legend>
+<label><input type="radio" name="plec" value="k" required>Kobieta</label>
+<label><input type="radio" name="plec" value="m" required>Mężczyzna</label>
+<label><input type="radio" name="plec" value="inne" required>Wolę nie podawać</label>
+</div>
+
+<label>Poziom zaawansowania</label>
+<select name="zaawansowanie" required>
+<option disabled selected>--Poziom zaawansowania--</option>
+<option>Początkujący</option>
+<option>Średniozaawansowany</option>
+<option>Zaawansowany</option>
+</select>
+
+<br><br>
+<button type="submit">Przejdź do podsumowania ankiety</button>
+</form>
+
+<script>
+// Checkbox "Żadne z wymienionych"
+let nic = document.getElementById("nic");
+let opcje = document.querySelectorAll("#pytanie1 .opcja");
+function updateVisual() {
+    opcje.forEach(opt => {
+        opt.parentElement.classList.toggle('disabled-look', nic.checked);
+    });
+}
+nic.addEventListener('change', () => {
+    if (nic.checked) opcje.forEach(opt => opt.checked = false);
+    updateVisual();
+});
+opcje.forEach(opt => {
+    opt.addEventListener('change', () => {
+        if (opt.checked) nic.checked = false;
+        updateVisual();
+    });
+});
+
+// "Inny nauczyciel"
+document.getElementById('nauczyciel').addEventListener('change', function(){
+    let pole = document.getElementById('wpisany');
+    pole.style.display = (this.value === 'inny') ? 'inline-block' : 'none';
+    if(this.value !== 'inny') pole.value = '';
+});
+
+// Ocena prowadzącego
+document.querySelectorAll('#ocena_prowadzacego img').forEach(img => {
+    img.addEventListener('click', () => {
+        document.querySelectorAll('#ocena_prowadzacego img').forEach(i => i.classList.remove('selected'));
+        img.classList.add('selected');
+        document.getElementById('ocena').value = img.dataset.value;
+    });
+});
+
+// Ocena materiałów
+document.querySelectorAll('#materialy img').forEach(img => {
+    img.addEventListener('click', () => {
+        document.querySelectorAll('#materialy img').forEach(i => i.classList.remove('selected'));
+        img.classList.add('selected');
+        document.getElementById('materialy1').value = img.dataset.value;
+    });
+});
+
+// Pytania dodatkowe
+let tak = document.getElementById("Tak");
+let nie = document.getElementById("Nie");
+let divUnikalne = document.getElementById("unikalne");
+tak.addEventListener('change', ()=> divUnikalne.style.display='block');
+nie.addEventListener('change', ()=> divUnikalne.style.display='none');
+
+// Wykorzystanie wiedzy
+let wykorzystam = document.getElementById("wykorzystam");
+let niewykorzystam = document.getElementById("Niewykorzystam");
+let idk = document.getElementById("nie-wiem");
+let divWiedza = document.getElementById("wiedza");
+wykorzystam.addEventListener('change', ()=> divWiedza.style.display='block');
+niewykorzystam.addEventListener('change', ()=> divWiedza.style.display='none');
+idk.addEventListener('change', ()=> divWiedza.style.display='none');
+</script>
+
+</body>
+</html>

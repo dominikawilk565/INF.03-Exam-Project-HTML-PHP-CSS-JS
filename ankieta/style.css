@@ -1,0 +1,98 @@
+        body{
+            background-color: #034159;
+            color: #ffffff;
+            
+         }
+         form{
+            background-color: #025951;
+            width: 80%;
+            margin: auto;
+            border-radius: 10px;
+            border: 1px solid #038C3E;
+            box-shadow: 0 6px 50px #0CF25D;
+            color: #ffffff;
+            padding: 10px;
+            font-size: 1.2em;
+            font-family:'Courier New', Courier, monospace;
+         }
+         h2,h3{
+            font-size: 1.5em;
+            text-align: center;
+            color: #0CF25D;
+         }
+         footer{
+            margin-top: 30px;
+            font-size: 0.7em;
+         }
+
+        #ocena,
+        #ocena1 {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;          
+            gap: 10px;
+            margin: 30px auto 30px auto; 
+            width: 80%;
+            padding-bottom: 20px;    
+            min-height: 200px; 
+        }
+
+        #ocena_prowadzacego img,
+        #materialy img {
+            width: 200px;  
+            max-width: 100%;        
+            height: auto;
+            transition: transform 0.3s;
+            transform-origin: center center;
+            margin-bottom: 15px;
+            padding-top: 20px;
+            padding: 10px auto 40px auto;
+        }
+
+        #ocena_prowadzacego img:hover,
+        #materialy img:hover {
+            transform: scale(1.25);
+        }
+
+        #ocena_prowadzacego img.selected,
+        #materialy img.selected {
+            border: 1.5px solid #0CF25D;
+            border-radius: 10px;
+            transform: scale(1.12);
+            box-shadow: 0px 10px 73px #0CF25D;
+            margin: 50px auto auto auto;
+        }
+
+        .disabled-look {
+        opacity: 0.5;
+        transition: opacity 0.3s;
+        }
+
+        textarea{
+            background-color: #039b8c;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+        textarea:focus{
+            transform: scale(1.05);
+        }
+
+main.summary {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #025951;
+    border-radius: 10px;
+    border: 1px solid #038C3E;
+    box-shadow: 0 6px 50px #0CF25D;
+    color: #ffffff;
+    font-size: 1.2em;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+main.summary canvas {
+    width: 100% !important;
+    height: 300px !important; 
+    display: block;
+    margin: 20px auto; 
+}

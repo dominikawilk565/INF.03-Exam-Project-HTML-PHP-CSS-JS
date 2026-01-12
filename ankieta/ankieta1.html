@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankieta</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- <header>
+        <div id="pasek">
+            <div id="przesuwanie">0% </div>
+        </div>
+
+    </header> -->
+
+    <main>   
+        <div>
+            <h2>Proszę o wypełnienie ankiety dotyczącej zajęć z przedmiotu Aplikacje Internetowe. <br>Zajmie ona nie dłużej niż kilka minut.</h2>
+            <h3>Wasza opinia ma znaczenie!</h3>
+        </div>
+
+            <form id="odpowiedzi" action="./podsumowanie.php" method="post">
+                <label>Którego języka programowania najczęściej używasz do pisania aplikacji internetowych?</label>
+                <div id="pytanie1">
+                    
+                    <label><input type="checkbox" id ="HTML" name="jezyki[]" value="HTML" class="opcja">HTML</label>
+                    <label><input type="checkbox" id ="CSS" name="jezyki[]" value="CSS" class="opcja">CSS </label>
+                    <label><input type="checkbox" id ="JavaScript" name="jezyki[]" value="JavaScript" class="opcja">JavaScript</label>
+                    <label><input type="checkbox" id ="Python" name="jezyki[]" value="Python" class="opcja">Python</label>
+                    <label><input type="checkbox" id ="Java" name="jezyki[]" value="Java" class="opcja">Java</label>
+                    <label><input type="checkbox" id ="PHP" name="jezyki[]" value="PHP" class="opcja">PHP </label>
+                    <label><input type="checkbox" id ="rodzina_c" name="jezyki[]" value="rodzina_c" class="opcja">Rodzina C(C,C#,C++) </label> 
+                    <label><input type="checkbox" id ="nic" name="jezyki[]" value="nic"> Żadne z wymienionych </label>
+                     
+                </div>
+                <br>
+                
+                <label>Wolisz front-end czy back-end?</label>
+                    <select name="front_ot_back">
+                        <option value="" selected disabled></option>
+                        <option value="front-end">front-end</option>
+                        <option value="back-end">back-end</option>
+                    </select>
+                
+                <br>
+
+                <label>Kto cię uczy Aplikacji Internetowych?</label>
+                    <select id="nauczyciel" name="nauczyciel" onchange="inny(this)">
+                        <option value="" selected disabled>--Wybierz--</option>
+                        <option value="front-end">Nowak</option>
+                        <option value="back-end">Michael</option>
+                        <option value="inny">Inny(Wpisz)</option>
+                    </select>
+                    <input type="text" id="wpisany" name="wpisany" placeholder="Wpisz nazwisko nauczyciela" style="display:none; margin-top:5px;">
+                   
+                
+                <br>
+
+                <label>Jak oceniasz przygotowanie prowadzącego do lekcji?</label>
+                    <div id="ocena_prowadzacego" style="display: flex; gap: 10px;  margin-top: 10px; cursor: pointer; width: 80%; margin-left:0px;">
+                        <img src="./bardzo_dobrze.png" alt="bardzo dobrze" data-value="5" >
+                        <img src="./dobrze.png" alt="dobrze" data-value="4" >
+                        <img src="./tak_lo.png" alt="średnio" data-value="3">
+                        <img src="./słabo.png" alt="słabo" data-value="2">
+                        <img src="./bardzo_źle.png" alt="Bardzo źle" data-value="1">
+                    </div>
+                    <input type="hidden" name="ocena" id="ocena" value="">
+
+                   
+                
+                <br>
+                <label for="ciekawostka">Najciekawsza rzecz, jakiej się dowiedziałe/łaś? </label>
+                    <textarea cols="50" rows="4" id="ciekawostka" name="ciekawostka"></textarea>
+               
+                <br>
+
+                <label for="jezyk">Jakiego języka używa prowadzący?</label>
+                    <select id="jezyk" name="jezyk">
+                        <option selected disabled>--Wybierz styl języka--</option>
+                        <option value="zrozumiałego">zrozumiałego</option>
+                        <option value="trochę-niezrozumiały">trochę niezrozumiały</option>
+                        <option value="nie">nie zrozumiałego</option>
+                    </select>
+                <br>
+
+                <label for="trudnosc">Czy stopień trudności zadań jest dobierany do ucznia?</label>
+                <label><input type="radio" name="trudnosc" id="Dobierany">Tak</label>
+                <label><input type="radio" name="trudnosc" id="Niedobierany">Nie</label>
+                <br>
+
+                <label for="stopien">Czy tempo pracy jest dostosowane do ucznia?</label>
+                    <select id="stopien" name="stopien">
+                        <option selected disabled>--Wybierz dostosowanie tempa--</option>
+                        <option value="dostosowywany">Tak</option>
+                        <option value="nie-zawsze">Nie zawsze</option>
+                        <option value="niedostosowywany">Nie</option>
+                    </select>
+                <br>
+
+                <label>Jak oceniasz materaiły dydaktyczne?</label>
+                    <div id="materialy" style="display: flex; gap: 10px;  margin-top: 10px; cursor: pointer; width: 80%; margin-left:0px;">
+                        <img src="./bardzo_dobrze.png" alt="bardzo dobrze" data-value="5" >
+                        <img src="./dobrze.png" alt="dobrze" data-value="4" >
+                        <img src="./tak_lo.png" alt="średnio" data-value="3">
+                        <img src="./słabo.png" alt="słabo" data-value="2">
+                        <img src="./bardzo_źle.png" alt="Bardzo źle" data-value="1">
+                    </div>
+                    <input type="hidden" name="materialy1" id="materialy1" value="">
+                
+                
+                <label for="czas">Jak często korzystasz z materiałów omawianych na zajęciach przy własnych projektach?</label>
+                    <select id="czas" name="czas">
+                        <option selected disabled>--Wybierz częstotliwość--</option>
+                        <option value="Czesto">Często</option>
+                        <option value="Rzadko">Rzadko</option>
+                        <option value="prawie-nigdy">Prawie-nigdy</option> 
+                        <option value="Nigdy">Nigdy</option>
+                        <option value="sprawdzian">Tylko na sprawdzian</option>
+                       
+                    </select>
+                <br>
+                
+                <label for="pytania">Czy masz możliwość zadawania pytań</label>
+                <label><input type="radio" name="pytania" id="Tak">Tak</label>
+                <label><input type="radio" name="pytania" id="Nie">Nie</label> 
+
+                <div id="unikalne" style="display: none;">
+                    <label for="pytania1">Czy na zadane pytanie otrzymujesz wyczerpującą odpowiedź?</label>
+                    <label><input type="radio" name="pytania1" id="Wyczerpująca">Tak</label>
+                    <label><input type="radio" name="pytania1" id="Nie-Wyczerpująca">Nie</label>
+                </div>
+
+                <br>
+
+                <label for="zadania">Czy masz możliwość otrzymywania dodatkowych zadań</label>
+                <label><input type="radio" name="zadania" id="zadawane" >Tak</label>
+                <label><input type="radio" name="zadania" id="Niezadawane">Nie</label> 
+                <br>
+                
+                <label>Czy planujesz wykorzystać zdobytą wiedzę w przyszłości?</label>
+                <label><input type="radio" name="urzycie" id="wykorzystam">Tak</label>
+                <label><input type="radio" name="urzycie" id="Niewykorzystam">Nie</label> 
+                <label><input type="radio" name="urzycie" id="nie-wiem">Nie wiem</label>
+
+                <div id="wiedza" style="display: none;">
+                    <label>Jak często planujesz wykorzystywać tą wiedzę?</label>
+                    <select name="useful" id="useful">
+                        <option selected disabled>--Wybierz częstotliwość--</option>
+                        <option value="Often">Często</option>
+                        <option value="Rarely">Rzadko</option>
+                        <option value="occasionally">Prawie-nigdy</option> 
+                        <option value="Never">Nigdy</option>
+                        <option value="use">Kiedy będę potrzebował/ła</option>
+                    </select>
+                </div>
+
+
+                <br>
+                <label for="zmiana">Co prowadzący może zmienić?</label>
+                    <textarea cols="50" rows="4" placeholder="..." id="zmiana" name="zmiana"></textarea>
+                
+                 <br>
+
+                <label>Który rok się uczysz Aplikacji Internetowych</label>
+                    <input type="number" name="lata" min="1" max="5" onblur="if (this.value === '') return; let wartosc = Number(this.value); if (wartosc < 1) this.value = 1; else if (wartosc > 5) this.value = 5;" onkeydown="return !['e', '-', '+', '.', ',',';','='].includes(event.key);" required>
+  
+                <div id="plec" >
+                    <legend>Płeć:</legend>
+                    <label><input type="radio" name="plec" id="kobieta" value="k" required> Kobieta</label>
+                    <label><input type="radio" name="plec" id="mezczyzna" value="m" required> Mężczyzna</label>
+                    <label><input type="radio" name="plec" id="nie_podane" value="inne" required> Wolę nie podawać</label>
+                </div>
+                <label>Wybierz swój poziom zaawansowania</label>
+                <select name="zaawansowanie" required> 
+                    <option disabled selected>--Poziom zaawansowania--</option>
+                    <option>Początkujący</option>
+                    <option>średniozaawansowany</option>
+                    <option>zaawansowany</option>
+                </select>
+                <br> 
+                <button type="submit">Przejdź do podsumowania ankiety</button>
+            </form>
+
+       
+    </main>
+
+    <footer><h3>Autor ankiety: Dominika Wilk</h3></footer>
+
+    <script src="./skrypt.js" defer></script>
+
+</body>
+</html>
