@@ -1,0 +1,3 @@
+SELECT DATA,Temat FROM `szkolenia` ORDER by Data;
+SELECT DATA,Temat,imie,nazwisko FROM `szkolenia` JOIN trenerzy ON szkolenia.Id_trenera=trenerzy.Id; 
+SELECT imie,nazwisko,COUNT(temat) FROM `szkolenia` JOIN trenerzy ON szkolenia.Id_trenera=trenerzy.Id GROUP BY nazwisko;

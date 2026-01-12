@@ -1,0 +1,57 @@
+*{font-family: Verdana;}
+html, body {
+    height: 100%;
+    margin: 0; /* na tym etapie brak marginesu, inaczej gradient się ucina */
+    padding: 0;
+}
+/* Gradient na tle, nie na body */
+html {
+    background: linear-gradient(to bottom, Teal, AliceBlue);
+}
+/* Wymagania z polecenia */
+body {
+    color: white;          /* biały tekst */
+    text-align: center;    /* wyrównanie do środka */
+    margin: 0 20px;        /* marginesy lewy/prawy zgodnie z zadaniem */
+    background: transparent; /* nie nadpisuje gradientu */
+}
+img
+{
+   width: 100%;
+   display: block;
+   position: fixed;
+   top: 70px;
+   z-index: -1;
+}
+a{
+    font-size: 130%;
+    padding: 30px;
+    color: white;
+}
+header{
+    background-color: rgba(160,82,45,0.6);
+    padding: 10px;
+    margin-top: 100px;
+    border-radius: 15px 15px 0 0;
+}
+main{ 
+    background-color: sandybrown; 
+    padding: 30px;
+}
+footer{
+    background-color: sienna;
+    padding: 30px;
+    border-radius: 0 0 15px 15px;
+}
+h1{
+    text-shadow: 2px 2px 5px black;
+}
+table{
+    margin: auto;
+    width: 70%;
+    background-color: sienna;
+}
+table,td{
+    border: 1px solid SandyBrown;
+    border-collapse: collapse;
+}

@@ -1,0 +1,4 @@
+kw1:SELECT COUNT(id) FROM `klienci`;
+kw2:SELECT Nazwisko,Imie,zamowienia.id,kod_koloru,pojemnosc,data_odbioru FROM `klienci` INNER JOIN zamowienia ON klienci.id=zamowienia.id_klienta ORDER BY `zamowienia`.`data_odbioru` ASC;
+kw3:SELECT Nazwisko,Imie,zamowienia.id,kod_koloru,pojemnosc,data_odbioru FROM `klienci` INNER JOIN zamowienia ON klienci.id=zamowienia.id_klienta where data_odbioru BETWEEN '2021-11-05' AND '2021-11-07' ORDER BY `zamowienia`.`data_odbioru` ASC;
+kw4:SELECT imie,Nazwisko FROM `klienci` WHERE Plec='k';

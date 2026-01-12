@@ -1,0 +1,4 @@
+kw1: SELECT pseudonim FROM `zawodnicy` where data_zdobycia BETWEEN '2020-07-01' AND '2020-07-31';
+kw2: SELECT pseudonim,tytul FROM `zawodnicy` where klasa="3A" AND tytul != ' ';
+kw3: SELECT pseudonim,klasa,ranking FROM `zawodnicy` ORDER BY ranking DESC limit 10;
+kw4: SELECT pseudonim,data_zdobycia, (CURRENT_DATE()-data_zdobycia)as 'dni' FROM `zawodnicy` where tytul != ' ';

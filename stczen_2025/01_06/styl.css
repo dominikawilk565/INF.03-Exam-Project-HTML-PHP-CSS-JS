@@ -1,0 +1,14 @@
+body{font-family: Georgia; color: white;}
+footer,header{background-color: #824555; text-align: center; padding: 20px;}
+main{display: flex; overflow-x: auto;}
+#blok_lewy,#blok_srodkowy{width: 30%; height:350px ;}
+#blok_lewy{background-color: #A26475}
+#blok_srodkowy{background-color: #824555}
+#blok_prawy{background-color: #A26470; width: 40%;height: 350px; overflow: auto ;}
+img{float: left; width: 50px;}
+table,p,dl{margin: 10px;}
+dt{padding-top: 20px;}
+td,th{
+    border: 3px solid #824555;
+    padding: 5px;
+}
