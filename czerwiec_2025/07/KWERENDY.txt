@@ -1,0 +1,5 @@
+SELECT DISTINCT (nazwa) FROM `miejsca` ORDER BY nazwa ASC;
+SELECT cena FROM `miejsca` where nazwa="Malbork";
+SELECT nazwa,cena,link_obraz FROM `miejsca` where link_obraz LIKE "0%";
+SELECT nazwa,Round(AVG(liczba_doroslych)) FROM `miejsca` join wycieczki using (id_miejsca) GROUP BY nazwa;
+CREATE TABLE IF NOT EXISTS `klienci` ( `id_klienta` int(10) unsigned NOT NULL, `imie` text(20) COLLATE utf8_polish_ci , `nazwisko` text(40) COLLATE utf8_polish_ci , `data_ur` date ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
