@@ -1,0 +1,5 @@
+body{font-family:Helvetica; background-color: #EAEAEA;}
+header,footer{background-color:#625B5B ; color: white; padding: 20px; text-align: center;}
+img{width: 100%;}
+ul{margin-left: 40px;list-style-type: circle;}
+.menu a{font-weight: bold;background-color: #EAEAEA;}
