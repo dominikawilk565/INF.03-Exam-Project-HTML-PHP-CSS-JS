@@ -1,0 +1,4 @@
+SELECT plik,nr_klienta,liczba_odbitek FROM `zamowienia` WHERE liczba_odbitek>100 and rodzaj="matowy";
+SELECT sum(cena*liczba_odbitek) as "Do zapłaty" FROM `zamowienia` join zdjecia USING (rodzaj) where nr_klienta=3;
+SELECT sum(liczba_odbitek) FROM `zamowienia` where rodzaj="błyszczący";
+CREATE USER "Anna"@"localhost" identified by "@NNa";

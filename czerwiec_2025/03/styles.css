@@ -1,0 +1,44 @@
+*{
+    font-family: "Roboto",Arial,sans-serif;
+    text-align: center;
+}
+body{background-color: lightcyan;}
+header,footer{
+    background-color: steelblue;
+    color: white; 
+    padding: 10px;
+}
+article{padding-top:40px; margin: 1%;}
+@media (min-width:800px) {
+    main{
+        display: flex;
+    }
+    article{
+        width: 30%;
+    }
+}
+@media (max-width:799px) {
+    article{
+        width: 98%;
+    }
+}
+#ropucha{
+    background-color: dodgerblue;
+}
+#lalka{
+    background-color: limegreen;
+}
+#przyjaciel{
+    background-color: darkorchid;
+}
+img{width: 70%;}
+p{padding: 20px;}
+table{
+    margin: auto;
+    width: 70%;
+    border: 1px solid steelblue;
+}
+tr:hover{
+    background-color: steelblue;
+    color: white;
+}

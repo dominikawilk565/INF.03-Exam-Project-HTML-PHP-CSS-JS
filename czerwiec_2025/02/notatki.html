@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planer zadań</title>
+    <!-- <link rel="stylesheet" href="./styl.css"> -->
+     <style>
+             h1{
+                font-style: oblique;
+                font-variant: small-caps;
+                text-align: right;
+     }
+     </style>
+
+</head>
+<body>
+    Zapraszamy <del>do odwiedzin</del><ins>do zakunów</ins>
+<!--     
+    <aside>
+        <img src="./obraz.jpg" alt="notatki">
+    </aside>
+
+    <div>
+        <header>
+            <h2>Moje zadania</h2>
+        </header>
+
+        <nav>
+            <input type="text" id="zadanie" placeholder="Dodaj zadanie...">
+            <input type="button" value="Dodaj" id="Dodaj">
+        </nav>
+
+        <main>
+            <ul id="lista">
+                <li>Wyprowadzić psa<input type="button" value="Wykonane" ></li>
+                <li>Gimnastyka<input type="button" value="Wykonane"></li>
+                <li>Zakupy<input type="button" value="Wykonane"></li>
+                <li>Spacer z kumplem<input type="button" value="Wykonane"></li>
+                <li>Odrabianie lekcji z młodszą siostrą<input type="button" value="Wykonane"></li>
+                <li>Projekt na geografię<input type="button" value="Wykonane"></li>
+                
+            </ul>
+        </main>
+
+        <footer>
+            <h3>Notatki: 0000000000000000000</h3>
+        </footer>
+    </div>
+
+    <script>
+                document.getElementById("lista").addEventListener("click",(e)=>{
+            if(e.target.type==="button")
+        {
+             let text= e.target.parentElement
+
+             text.style.textDecoration="line-through"
+             text.style.textDecorationStyle="solid"
+             text.style.textDecorationColor="black"
+        }
+            
+
+        })
+
+        document.getElementById("Dodaj").addEventListener("click",()=>{
+            let dodane=document.getElementById("zadanie").value
+            
+            
+            if(dodane.trim() === "") return
+
+               let przycisk=document.createElement("input")
+               przycisk.type="button"
+               przycisk.value="Wykonane" 
+
+               let li=document.createElement("li")
+               li.textContent= dodane + " "
+               
+            li.appendChild(przycisk)
+            document.getElementById("lista").appendChild(li)
+    
+        })
+
+
+    </script> -->
+</body>
+</html>

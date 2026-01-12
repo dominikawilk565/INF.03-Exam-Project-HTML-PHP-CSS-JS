@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotografia</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+    <header>
+        <h1>Fotografia artystyczna</h1>
+    </header>
+
+    <section>
+    <img src="1.jpg" alt="obrazy na sprzedaż" title="1.jpg">
+    <img src="2.jpg" alt="obrazy na sprzedaż" title="2.jpg">
+    <img src="3.jpg" alt="obrazy na sprzedaż" title="3.jpg">
+    <img src="4.jpg" alt="obrazy na sprzedaż" title="4.jpg">
+    <img src="5.jpg" alt="obrazy na sprzedaż" title="5.jpg">
+    <img src="6.jpg" alt="obrazy na sprzedaż" title="6.jpg">
+    <img src="7.jpg" alt="obrazy na sprzedaż" title="7.jpg">
+    <img src="8.jpg" alt="obrazy na sprzedaż" title="8.jpg">
+    <img src="9.jpg" alt="obrazy na sprzedaż" title="9.jpg">
+    <img src="10.jpg" alt="obrazy na sprzedaż" title="10.jpg">
+    </section>  
+
+    <main>
+        <aside>
+            <h3>Zamówienie</h3>
+            <label for="pliczek">Wybierz obraz:</label>
+            <input type="file" name="" id="fotki" accept="image/jpeg">
+            <br>
+            <label for="liczby">Liczba Kopii:</label>
+            <input type="number" name="" id="kopie" min="0">
+            <br>
+            <input type="radio" name="papier" id="blysk" checked value="blysk"><label>Papier błyszczący</label><br>
+            <input type="radio" name="papier" id="mat" value="mat"><label>Papier matowy</label><br>
+            <input type="button" value="Dodaj do koszyka" onclick="skrypt1()">
+        </aside>
+        <div>
+        <nav>
+            <ul>
+                <li><a href="./regulamin.html">Regulamin</a></li>
+                <li><a href="./uslugi.html">Usługi</a></li>
+                <li><a href="https://pixabay.com">Zdjęcia</a></li>
+            </ul>
+        </nav>
+        <article>
+            <h3>Koszyk</h3>
+            <section id="wywolanie"></section>
+        </article>
+    </div>
+    </main>
+    <footer>
+        <p>Autor strony: <em>000000000000</em></p>
+    </footer>
+
+    <script>
+     
+        function skrypt1(){
+         plik=document.getElementById("fotki").value
+        
+         ilosc= document.getElementById("kopie").value
+        
+         papieri= document.getElementsByName("papier")
+         let wybrany
+
+        papieri.forEach(radio => {
+            if(radio.checked)
+                wybrany=radio.value            
+        });
+
+        
+        cena=0;
+        if(wybrany==="blysk")
+        {
+            cena = 1.5
+        }
+       else
+        {
+            cena = 2
+        }
+
+        cana_koniec=ilosc*cena; 
+
+        wywolanie=document.getElementById("wywolanie")
+
+        wywolanie.innerHTML+=""
+
+        const foto=document.createElement("img")
+        let czyste=plik.split("\\").pop()
+        foto.setAttribute("src", czyste)
+
+        wywolanie.appendChild(foto);
+
+        const paragraf=document.createElement("p")
+        paragraf.textContent="Liczba kopii: "+ilosc+"\n"
+
+        wywolanie.appendChild(paragraf)
+
+        const cennik=document.createElement("p")
+        cennik.textContent="Cena :" + cana_koniec+"\n"
+        wywolanie.appendChild(cennik)
+
+        } 
+    </script>
+</body>
+</html>
