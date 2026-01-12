@@ -1,0 +1,4 @@
+SELECT model FROM `produkt`;
+SELECT model,nazwa,cena,nazwa_pliku FROM `buty` JOIN produkt USING(model);
+SELECT nazwa, cena, kolor, kod_produktu, material, nazwa_pliku FROM `buty` JOIN produkt USING(model) where model="P-59-03";
+INSERT INTO `kategorie`(`nazwa_kat`) VALUES ('Sandały');

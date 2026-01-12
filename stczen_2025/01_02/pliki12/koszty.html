@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montaż paneli podłogowych</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <img src="./montaz_paneli.png" alt="firma usługowa">
+    </header>
+    <nav>
+        <a href="index.html">Strona Główna</a>
+        <a href="oferta.html">Oferta</a>
+        <a href="koszty.html">Kalkulator kosztów</a>
+    </nav>
+    <section>
+        <h1>Kalkulator kosztów montażu</h1>
+        <form>
+            <label for="szerokosc">Szerokość pomieszczenia[m]</label><input type="number" name="szerokosc" id="szerokosc">
+            <label for="dlugosc">Długość pomieszczenia[m]</label><input type="number" name="dlugosc" id="dlugosc">
+            <p>Typ panelu</p>
+            <label><input type="radio" name="wybor" id="laminowane">Panele laminowane</label><br>
+            <label><input type="radio" name="wybor" id="winylowe">Panele winylowe</label><br>
+            <label><input type="radio" name="wybor" id="deska">Deska podłogowa</label><br>
+            <input type="button" value="Oblicz" id="przycisk">
+            <p id="wyswietl"></p>
+        </form>
+        <script>
+            let guzik=document.getElementById("przycisk")
+
+            guzik.addEventListener("click",()=>{
+                let szerokosc=document.getElementById("szerokosc").value
+                let dlugosc=document.getElementById("dlugosc").value
+                if(dlugosc>0&&szerokosc>0)
+                {
+                    let pole=dlugosc*szerokosc
+                    if(document.getElementById("laminowane").checked)
+                    {
+                        koszt=pole*12
+                    }
+                    if(document.getElementById("winylowe").checked)
+                    {
+                     koszt=pole*14 
+                    }
+                    if(document.getElementById("deska").checked)
+                    {
+                     koszt=pole*18
+                    }
+                    document.getElementById("wyswietl").innerHTML="Pole powierzchni pomieszczenia: "+pole+",koszt montażu: "+koszt
+                }
+                else
+                {
+                    document.getElementById("wyswietl").innerHTML="Wprowadź poprawne dane"
+                }
+            })
+            
+        </script>
+
+    </section>
+        <footer>
+        <h5>Autor strony: 0000000000000000000000000000</h5>
+    </footer>
+</body>
+</html>

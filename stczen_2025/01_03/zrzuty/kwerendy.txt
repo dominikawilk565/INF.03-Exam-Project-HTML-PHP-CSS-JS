@@ -1,0 +1,5 @@
+1)SELECT data FROM `imieniny` where imiona LIKE "%Karola%";
+2)SELECT imiona FROM `imieniny` where data ="05-04";
+3)SELECT COUNT(data) FROM `imieniny` where imiona like "%mir%";
+4)ALTER TABLE imieniny ADD COLUMN zyczenia text(500) NOT NULL;
+
